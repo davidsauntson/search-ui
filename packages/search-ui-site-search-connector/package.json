@@ -1,5 +1,5 @@
 {
-  "name": "@elastic/search-ui-site-search-connector",
+  "name": "@davidsauntson/search-ui-site-search-connector",
   "version": "1.4.1",
   "description": "A Search UI connector for Elastic's Site Search Service",
   "license": "Apache-2.0",
@@ -20,14 +20,6 @@
     "directory": "packages/search-ui-site-search-connector"
   },
   "scripts": {
-    "test-ci": "jest --runInBand",
-    "test": "jest",
-    "clean": "rimraf es lib",
-    "watch-js": "./bin/watch-js",
-    "build-js": "./bin/build-js",
-    "build": "run-s clean build-js",
-    "watch": "run-p watch-js",
-    "prepare": "npm run build"
   },
   "bugs": {
     "url": "https://github.com/elastic/search-ui/issues"
