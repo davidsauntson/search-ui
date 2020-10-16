@@ -1,6 +1,6 @@
 {
   "name": "@elastic/react-search-ui",
-  "version": "1.2.0",
+  "version": "1.4.1",
   "description": "A React library for building search experiences",
   "license": "Apache-2.0",
   "main": "lib",
@@ -21,7 +21,7 @@
   },
   "scripts": {
     "test-ci": "jest --runInBand",
-    "test": "jest",
+    "test": "./bin/test",
     "clean": "rimraf es lib",
     "watch-js": "./bin/watch-js",
     "build-js": "./bin/build-js",
@@ -34,9 +34,8 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.5.4",
-    "@elastic/react-search-ui-views": "1.2.0",
-    "@elastic/search-ui": "1.2.0",
-    "debounce-fn": "^1.0.0"
+    "@elastic/react-search-ui-views": "1.4.1",
+    "@elastic/search-ui": "1.4.1"
   },
   "peerDependencies": {
     "react": "^16.8.0"

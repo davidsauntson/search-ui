@@ -53,21 +53,23 @@ It looks like this:
 
 ```jsx
 <SearchProvider config={config}>
-  {/*SearchProvider exposes the "Context"*/}
-  {context => {
-    // Context contains state, like "searchTerm"
-    const searchTerm = context.searchTerm;
-    // Context also contains actions, like "setSearchTerm"
-    const setSearchTerm = context.setSearchTerm;
-    return (
-      <div className="App">
-        {/*An out-of-the-box Component like SearchBox uses State and Actions under the hood*/}
-        <SearchBox />
-        {/*We could work directly with those State and Actions also */}
-        <input value={searchTerm} onChange={setSearchTerm} />
-      </div>
-    );
-  }}
+  <WithSearch>
+    {/*WithSearch exposes the "Context"*/}
+    {context => {
+      // Context contains state, like "searchTerm"
+      const searchTerm = context.searchTerm;
+      // Context also contains actions, like "setSearchTerm"
+      const setSearchTerm = context.setSearchTerm;
+      return (
+        <div className="App">
+          {/*An out-of-the-box Component like SearchBox uses State and Actions under the hood*/}
+          <SearchBox />
+          {/*We could work directly with those State and Actions also */}
+          <input value={searchTerm} onChange={setSearchTerm} />
+        </div>
+      );
+    }}
+  </WithSearch>
 </SearchProvider>
 ```
 
@@ -258,6 +260,7 @@ It is updated indirectly by invoking an action which results in a new API reques
 | `autocompletedSuggestions`          | Object[String, Array[[Suggestion](./packages/react-search-ui/src/types/Suggestion.js)] | A keyed object of query suggestions. It's keyed by type since multiple types of query suggestions can be set here.                                                                                                                                                        |
 | `autocompletedSuggestionsRequestId` | String                                                                                 | A unique ID for the current autocompleted suggestion results.                                                                                                                                                                                                             |
 | `facets`                            | Object[[Facet](./packages/react-search-ui/src/types/Facet.js)]                         | Will be populated if `facets` configured in [Advanced Configuration](#advanced-configuration).                                                                                                                                                                            |
+| `rawResponse`                       | Object                                                                                 | The response object received from the API                                                                                                                                                                                                                                 |
 | `requestId`                         | String                                                                                 | A unique ID for the current search results.                                                                                                                                                                                                                               |
 | `results`                           | Array[[Result](./packages/react-search-ui/src/types/Result.js)]                        | An array of result items.                                                                                                                                                                                                                                                 |
 | `resultSearchTerm`                  | String                                                                                 | As opposed the the `searchTerm` state, which is tied to the current search parameter, this is tied to the searchTerm for the current results. There will be a period of time in between when a request is started and finishes where the two pieces of state will differ. |
